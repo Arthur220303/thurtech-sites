@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CliniCare</title>
+<title>CliniCare Premium</title>
 
 <style>
 
@@ -15,9 +15,8 @@ font-family:Arial, sans-serif;
 scroll-behavior:smooth;
 }
 
-/* BODY */
 body{
-background:#f3f7ff;
+background:#f4f8ff;
 }
 
 /* MENU */
@@ -25,12 +24,12 @@ nav{
 position:fixed;
 top:0;
 width:100%;
+padding:22px;
 background:rgba(255,255,255,.95);
-box-shadow:0 4px 25px rgba(0,0,0,.08);
-padding:20px;
+box-shadow:0 5px 30px rgba(0,0,0,.08);
 text-align:center;
 z-index:1000;
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
 }
 
 nav a{
@@ -38,7 +37,7 @@ text-decoration:none;
 color:#222;
 font-weight:bold;
 margin:0 8px;
-transition:.3s;
+cursor:pointer;
 }
 
 nav a:hover{
@@ -61,31 +60,25 @@ url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fi
 
 background-size:cover;
 background-position:center;
-
 color:white;
 }
 
-/* LOGO */
 .logo{
-font-size:42px;
+font-size:44px;
 font-weight:800;
 letter-spacing:6px;
 color:#00aaff;
-background:linear-gradient(90deg,#00aaff,#0088ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
 margin-bottom:30px;
-animation:fadeIn 1.2s ease;
 }
 
 .hero h1{
-font-size:58px;
+font-size:60px;
 margin-bottom:25px;
 }
 
 .hero p{
 max-width:700px;
-font-size:19px;
+font-size:20px;
 line-height:1.7;
 color:#eee;
 margin-bottom:40px;
@@ -93,14 +86,13 @@ margin-bottom:40px;
 
 /* BOTÃO */
 .btn{
-padding:18px 45px;
+padding:18px 48px;
 background:#00aaff;
 color:white;
 text-decoration:none;
 font-weight:bold;
-border-radius:16px;
+border-radius:18px;
 transition:.4s;
-box-shadow:0 0 35px rgba(0,170,255,.5);
 }
 
 .btn:hover{
@@ -113,6 +105,7 @@ padding:120px 20px;
 text-align:center;
 }
 
+/* CARDS */
 .cards{
 display:flex;
 justify-content:center;
@@ -123,22 +116,32 @@ margin-top:60px;
 
 .card{
 background:white;
-padding:35px;
+padding:40px;
 width:260px;
-border-radius:24px;
-box-shadow:0 10px 40px rgba(0,0,0,.08);
+border-radius:26px;
+box-shadow:0 15px 45px rgba(0,0,0,.08);
+cursor:pointer;
 transition:.4s;
 }
 
 .card:hover{
 transform:translateY(-12px);
-box-shadow:0 15px 50px rgba(0,0,0,.15);
+}
+
+/* CONTEÚDO OCULTO */
+.hidden{
+display:none;
+margin-top:30px;
+padding:30px;
+background:white;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,.08);
 }
 
 /* GALERIA */
 .gallery{
 padding:120px 20px;
-background:#e9f1ff;
+background:#e9f2ff;
 text-align:center;
 }
 
@@ -156,15 +159,9 @@ width:260px;
 
 .gallery-item img{
 width:100%;
-height:180px;
+height:190px;
 object-fit:cover;
-border-radius:18px;
-}
-
-.gallery-item p{
-margin-top:10px;
-font-size:14px;
-color:#666;
+border-radius:22px;
 }
 
 /* CONTATO */
@@ -176,16 +173,11 @@ text-align:center;
 .social a{
 display:inline-block;
 margin:15px;
-padding:16px 35px;
+padding:16px 40px;
 background:#111;
 color:white;
 text-decoration:none;
-border-radius:14px;
-transition:.3s;
-}
-
-.social a:hover{
-background:#00aaff;
+border-radius:16px;
 }
 
 footer{
@@ -194,18 +186,6 @@ color:white;
 padding:50px;
 text-align:center;
 margin-top:120px;
-}
-
-/* ANIMAÇÃO */
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
 }
 
 </style>
@@ -225,11 +205,11 @@ transform:translateY(0);
 
 <div class="logo">CLINICARE</div>
 
-<h1>Saúde com Tecnologia e Confiança</h1>
+<h1>Saúde Premium</h1>
 
 <p>
-Clínica fictícia demonstrativa para portfólio profissional.
-Atendimento médico moderno, seguro e humano.
+Clínica fictícia demonstrativa para portfólio.
+Atendimento médico moderno e seguro.
 </p>
 
 <a class="btn" href="#servicos">Conhecer Serviços</a>
@@ -242,26 +222,43 @@ Atendimento médico moderno, seguro e humano.
 
 <div class="cards">
 
-<div class="card">
+<div class="card" onclick="mostrar('consulta')">
+<h3>Consulta</h3>
+</div>
+
+<div class="card" onclick="mostrar('exames')">
+<h3>Exames</h3>
+</div>
+
+<div class="card" onclick="mostrar('tratamentos')">
+<h3>Tratamentos</h3>
+</div>
+
+<div class="card" onclick="mostrar('checkup')">
+<h3>Check-up</h3>
+</div>
+
+</div>
+
+<!-- CONTEÚDOS OCULTOS -->
+<div id="consulta" class="hidden">
 <h3>Consulta Geral</h3>
 <p>Avaliação médica completa.</p>
 </div>
 
-<div class="card">
+<div id="exames" class="hidden">
 <h3>Exames</h3>
-<p>Diagnóstico moderno.</p>
+<p>Exames laboratoriais e diagnósticos modernos.</p>
 </div>
 
-<div class="card">
+<div id="tratamentos" class="hidden">
 <h3>Tratamentos</h3>
-<p>Acompanhamento médico.</p>
+<p>Tratamentos especializados.</p>
 </div>
 
-<div class="card">
+<div id="checkup" class="hidden">
 <h3>Check-up</h3>
-<p>Saúde preventiva.</p>
-</div>
-
+<p>Prevenção e acompanhamento da saúde.</p>
 </div>
 
 </section>
@@ -272,20 +269,11 @@ Atendimento médico moderno, seguro e humano.
 
 <div class="gallery-grid">
 
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1580281657527-47a1b2e6c6a9">
-<p>Imagem apenas ilustrativa</p>
-</div>
+<img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800">
 
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7">
-<p>Imagem apenas ilustrativa</p>
-</div>
+<img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800">
 
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136">
-<p>Imagem apenas ilustrativa</p>
-</div>
+<img src="https://images.unsplash.com/photo-1580281657527-47a1b2e6c6a9?auto=format&fit=crop&w=800">
 
 </div>
 
@@ -307,6 +295,18 @@ Atendimento médico moderno, seguro e humano.
 <footer>
 <p>CliniCare © 2026</p>
 </footer>
+
+<script>
+
+function mostrar(id){
+
+let boxes = document.querySelectorAll(".hidden");
+boxes.forEach(b => b.style.display="none");
+
+document.getElementById(id).style.display="block";
+}
+
+</script>
 
 </body>
 </html>
