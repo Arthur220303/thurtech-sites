@@ -15,16 +15,21 @@ font-family:Arial, sans-serif;
 }
 
 body{
-background:#f4f7fb;
+background:#f3f7fc;
 color:#111;
 }
 
 /* HEADER */
 header{
-background:white;
-padding:25px;
-text-align:center;
+position:fixed;
+width:100%;
+top:0;
+padding:20px;
+background:rgba(255,255,255,.9);
+backdrop-filter:blur(15px);
 box-shadow:0 2px 20px rgba(0,0,0,.08);
+text-align:center;
+z-index:1000;
 }
 
 .logo{
@@ -33,7 +38,7 @@ font-weight:bold;
 color:#00aaff;
 }
 
-/* HERO */
+/* HERO COM IMAGEM */
 .hero{
 min-height:100vh;
 display:flex;
@@ -42,35 +47,43 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:120px 20px;
-background:linear-gradient(to bottom,#ffffff,#e9f1fb);
+
+background:
+linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url("https://images.unsplash.com/photo-1580281657527-47a1b2e6c6a9");
+background-size:cover;
+background-position:center;
+
+color:white;
 }
 
 .hero h1{
-font-size:50px;
+font-size:55px;
 margin-bottom:25px;
 }
 
 .hero p{
 max-width:700px;
-color:#555;
 font-size:19px;
 line-height:1.7;
 margin-bottom:40px;
+color:#eee;
 }
 
-/* BOTÃO */
+/* BOTÃO PREMIUM */
 .btn{
-padding:18px 40px;
+padding:18px 45px;
 background:#00aaff;
 color:white;
 text-decoration:none;
-border-radius:12px;
 font-weight:bold;
-transition:.3s;
+border-radius:14px;
+transition:.4s;
+box-shadow:0 0 30px rgba(0,170,255,.5);
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 }
 
 /* SERVIÇOS */
@@ -89,15 +102,38 @@ margin-top:60px;
 
 .card{
 background:white;
-padding:30px;
-width:250px;
-border-radius:18px;
-box-shadow:0 6px 30px rgba(0,0,0,.08);
+padding:35px;
+width:260px;
+border-radius:20px;
+box-shadow:0 8px 35px rgba(0,0,0,.08);
 transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-12px);
+}
+
+/* AGENDAMENTO */
+.agenda{
+padding:120px 20px;
+text-align:center;
+}
+
+.formbox{
+max-width:500px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 8px 35px rgba(0,0,0,.08);
+}
+
+input, select{
+width:100%;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+border:1px solid #ddd;
 }
 
 /* CONTATO */
@@ -120,7 +156,7 @@ footer{
 background:#111;
 color:white;
 padding:40px;
-margin-top:100px;
+margin-top:120px;
 text-align:center;
 }
 
@@ -136,11 +172,11 @@ text-align:center;
 
 <section class="hero">
 
-<h1>Saúde e Segurança para Você</h1>
+<h1>Saúde com Confiança e Tecnologia</h1>
 
 <p>
-Clínica fictícia demonstrativa para portfólio profissional.
-Atendimento médico, exames e acompanhamento especializado.
+Atendimento médico profissional com cuidado, segurança
+e tecnologia para seu bem-estar.
 </p>
 
 <a class="btn" href="#agendar">
@@ -167,24 +203,24 @@ Agendar Consulta
 
 <div class="card">
 <h3>Tratamentos</h3>
-<p>Saúde e prevenção.</p>
+<p>Acompanhamento especializado.</p>
 </div>
 
 </div>
 
 </section>
 
-<section id="agendar" class="section">
+<section id="agendar" class="agenda">
 
-<h2>Agendamento</h2>
+<h2>Agendamento Online</h2>
 
-<div style="max-width:500px;margin:auto;margin-top:40px;">
+<div class="formbox">
 
-<input style="width:100%;padding:15px;margin:10px;border-radius:10px;border:1px solid #ddd;" placeholder="Seu nome">
+<input placeholder="Seu nome">
 
-<input style="width:100%;padding:15px;margin:10px;border-radius:10px;border:1px solid #ddd;" type="date">
+<input type="date">
 
-<select style="width:100%;padding:15px;margin:10px;border-radius:10px;border:1px solid #ddd;">
+<select>
 <option>Escolher horário</option>
 <option>09:00</option>
 <option>10:00</option>
@@ -192,7 +228,7 @@ Agendar Consulta
 </select>
 
 <button class="btn" style="width:100%;margin-top:20px;">
-Confirmar
+Confirmar Agendamento
 </button>
 
 </div>
