@@ -37,7 +37,7 @@ text-decoration:none;
 color:#222;
 font-weight:bold;
 margin:0 8px;
-cursor:pointer;
+transition:.3s;
 }
 
 nav a:hover{
@@ -60,6 +60,7 @@ url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fi
 
 background-size:cover;
 background-position:center;
+
 color:white;
 }
 
@@ -68,7 +69,11 @@ font-size:44px;
 font-weight:800;
 letter-spacing:6px;
 color:#00aaff;
+background:linear-gradient(90deg,#00aaff,#00ccff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 margin-bottom:30px;
+animation:fadeIn 1s ease;
 }
 
 .hero h1{
@@ -93,6 +98,7 @@ text-decoration:none;
 font-weight:bold;
 border-radius:18px;
 transition:.4s;
+box-shadow:0 0 40px rgba(0,170,255,.5);
 }
 
 .btn:hover{
@@ -120,22 +126,12 @@ padding:40px;
 width:260px;
 border-radius:26px;
 box-shadow:0 15px 45px rgba(0,0,0,.08);
-cursor:pointer;
 transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-12px);
-}
-
-/* CONTEÚDO OCULTO */
-.hidden{
-display:none;
-margin-top:30px;
-padding:30px;
-background:white;
-border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,.08);
+transform:translateY(-15px);
+box-shadow:0 20px 60px rgba(0,0,0,.15);
 }
 
 /* GALERIA */
@@ -164,6 +160,12 @@ object-fit:cover;
 border-radius:22px;
 }
 
+.gallery-item p{
+margin-top:10px;
+font-size:14px;
+color:#666;
+}
+
 /* CONTATO */
 .contact{
 padding:100px 20px;
@@ -178,8 +180,14 @@ background:#111;
 color:white;
 text-decoration:none;
 border-radius:16px;
+transition:.3s;
 }
 
+.social a:hover{
+background:#00aaff;
+}
+
+/* FOOTER */
 footer{
 background:#0a0a0a;
 color:white;
@@ -188,8 +196,19 @@ text-align:center;
 margin-top:120px;
 }
 
-</style>
+/* ANIMAÇÃO */
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
 
+</style>
 </head>
 
 <body>
@@ -205,11 +224,11 @@ margin-top:120px;
 
 <div class="logo">CLINICARE</div>
 
-<h1>Saúde Premium</h1>
+<h1>Saúde Premium para Você</h1>
 
 <p>
-Clínica fictícia demonstrativa para portfólio.
-Atendimento médico moderno e seguro.
+Atendimento médico moderno, seguro e humano.
+Qualidade e tecnologia no cuidado com a saúde.
 </p>
 
 <a class="btn" href="#servicos">Conhecer Serviços</a>
@@ -222,43 +241,26 @@ Atendimento médico moderno e seguro.
 
 <div class="cards">
 
-<div class="card" onclick="mostrar('consulta')">
+<div class="card">
 <h3>Consulta</h3>
-</div>
-
-<div class="card" onclick="mostrar('exames')">
-<h3>Exames</h3>
-</div>
-
-<div class="card" onclick="mostrar('tratamentos')">
-<h3>Tratamentos</h3>
-</div>
-
-<div class="card" onclick="mostrar('checkup')">
-<h3>Check-up</h3>
-</div>
-
-</div>
-
-<!-- CONTEÚDOS OCULTOS -->
-<div id="consulta" class="hidden">
-<h3>Consulta Geral</h3>
 <p>Avaliação médica completa.</p>
 </div>
 
-<div id="exames" class="hidden">
+<div class="card">
 <h3>Exames</h3>
-<p>Exames laboratoriais e diagnósticos modernos.</p>
+<p>Diagnóstico moderno.</p>
 </div>
 
-<div id="tratamentos" class="hidden">
+<div class="card">
 <h3>Tratamentos</h3>
-<p>Tratamentos especializados.</p>
+<p>Acompanhamento profissional.</p>
 </div>
 
-<div id="checkup" class="hidden">
+<div class="card">
 <h3>Check-up</h3>
-<p>Prevenção e acompanhamento da saúde.</p>
+<p>Saúde preventiva.</p>
+</div>
+
 </div>
 
 </section>
@@ -269,11 +271,20 @@ Atendimento médico moderno e seguro.
 
 <div class="gallery-grid">
 
-<img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800">
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1580281657527-47a1b2e6c6a9">
+<p>Imagem apenas ilustrativa</p>
+</div>
 
-<img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800">
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7">
+<p>Imagem apenas ilustrativa</p>
+</div>
 
-<img src="https://images.unsplash.com/photo-1580281657527-47a1b2e6c6a9?auto=format&fit=crop&w=800">
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136">
+<p>Imagem apenas ilustrativa</p>
+</div>
 
 </div>
 
@@ -295,18 +306,6 @@ Atendimento médico moderno e seguro.
 <footer>
 <p>CliniCare © 2026</p>
 </footer>
-
-<script>
-
-function mostrar(id){
-
-let boxes = document.querySelectorAll(".hidden");
-boxes.forEach(b => b.style.display="none");
-
-document.getElementById(id).style.display="block";
-}
-
-</script>
 
 </body>
 </html>
